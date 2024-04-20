@@ -3,17 +3,19 @@
 
 // Write your JavaScript code.
 function getTest() {
-	var selects = getSelect();
+	var selects = getSelect('option1');
 	if (!selects.length) {
 		alert("请至少选择1课");
 		return;
 	}
+	var ifMany = getSelect('ifMany');
 	$("#selectItem").val(selects.join(","));
+	$("#selectifMany").val(ifMany.join(","));
 	$("#frmReport").submit();
 }
-function getSelect() {
-	var arr = [];	//声明一个数组用来存放遍历出来的checkbox value值
-	$("input[name='option1']:checked").each(function (i) {
+function getSelect(selectName) {
+	var arr = [];
+	$("input[name='" + selectName+ "']:checked").each(function (i) {
 		arr.push($(this).val());	
 	})
 	return arr;

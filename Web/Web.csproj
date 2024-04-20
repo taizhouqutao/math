@@ -6,8 +6,12 @@
 
   <ItemGroup>
     <None Remove="NPOI" />
+    <None Remove="Help\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NPOI" Version="2.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Help\" />
   </ItemGroup>
 </Project>
