@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "口算生成器";
+}
+
+<div class="text-center">
+    <h1 class="display-4">导出口算</h1>
+    <form id="frmReport" action="/Home/ExportExcel" method="post">
+        <input type="hidden" id="selectItem" name="selectItem" />
+        生成题数：<input type="number" value="120" name="itemcount">  <input type="button" onclick="getTest()" value="导出" />
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" name="option_all" value="check_all" id="checkbox-all">全选</th>
+                    <th>课程</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" name="option1" class="option1" value="6.3"></td>
+                    <td>6.3 两位数减一位数、整十数</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="option1" class="option1" value="6.2"></td>
+                    <td>6.2 两位数加一位数、整十数</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="option1" class="option1" value="6.1"></td>
+                    <td>6.1 整十数加、减整十数</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="option1" class="option1" value="2.2"></td>
+                    <td>2.2 二十以内的退位减法</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="option1" class="option1" value="2.1"></td>
+                    <td>2.1 二十以内的进位加法</td>
+                </tr>
+                <!-- 其他行... -->
+            </tbody>
+        </table>
+    </form>
+</div>
