@@ -132,7 +132,19 @@ namespace Web.Controllers
                 cell.SetCellValue(cellValue);
                 cell.CellStyle = cellStyle;
                 var cellAns = row.CreateCell(i * 2+1);
-                sheet1.SetColumnWidth(i * 2 + 1, 2400);
+                int Width = 2400;
+                if (!string.IsNullOrEmpty(selectifMany))
+                {
+                    if(i==3||i==4)
+                    {
+                        Width = 2850;
+                    }
+                    else
+                    {
+                        Width = 2100;
+                    }
+                }
+                sheet1.SetColumnWidth(i * 2 + 1, Width);
                 cellAns.CellStyle = cellStyle;
                 i = i + 1;
                 if(i==5)
