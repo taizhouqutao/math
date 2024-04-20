@@ -1,2 +1,5 @@
 *.log
 temp/
+.vs/
+Web/bin
+Web/obj
