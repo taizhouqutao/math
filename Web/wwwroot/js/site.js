@@ -8,6 +8,11 @@ function getTest() {
 		alert("请至少选择1课");
 		return;
 	}
+	var hasMoney = selects.filter((i) => { return i === "5.1"; });
+	if (hasMoney.length && selects.length > 1) {
+		alert("因为排版问题，“5.1认识人民币”无法和其他课题混选，如要练习5.1课题，需单独勾选5.1课，请见谅");
+		return;
+    }
 	var ifMany = getSelect('ifMany');
 	$("#selectItem").val(selects.join(","));
 	$("#selectifMany").val(ifMany.join(","));
