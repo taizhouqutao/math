@@ -172,7 +172,7 @@ namespace Web.Help
             return $"{num1} - {num2} = ";
         }
 
-        public static string Make6_1_Sev()
+        public static string Make6_1_Sev(string selectifKH)
         {
             Random random = new Random();
 
@@ -209,7 +209,7 @@ namespace Web.Help
             return $"{string.Join(" ", Chars)} = ";
         }
 
-        public static string Make6_2_Sev()
+        public static string Make6_2_Sev(string selectifKH)
         {
             Random random = new Random();
 
@@ -247,7 +247,7 @@ namespace Web.Help
             return $"{string.Join(" ", Chars)} = ";
         }
 
-        public static string Make6_3_Sev()
+        public static string Make6_3_Sev(string selectifKH)
         {
             Random random = new Random();
 

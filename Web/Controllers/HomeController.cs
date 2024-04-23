@@ -38,9 +38,10 @@ namespace Web.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public ActionResult ExportExcel(string selectItem,string itemcount,string selectifMany)
+        public ActionResult ExportExcel(string selectItem,string itemcount,string selectifMany,string selectifKH)
         {
             var Lessons = selectItem.Split(",");
+            Console.Write(selectifKH);
             decimal.TryParse(itemcount, out decimal totalst);
             if (totalst == 0) totalst = 100;
             int total = Convert.ToInt32(Math.Floor(totalst));
@@ -58,7 +59,7 @@ namespace Web.Controllers
                     {
                         chlimit = indx % 5;
                     }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make6.Make6_1_Sev() : Make6.Make6_1(out OutArray);
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Make6.Make6_1_Sev(selectifKH) : Make6.Make6_1(out OutArray);
                     randomList.Add(Chars);
                 }
                 else if (unit == "6.2")
@@ -68,7 +69,7 @@ namespace Web.Controllers
                     {
                         chlimit = indx % 5;
                     }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make6.Make6_2_Sev() : Make6.Make6_2(out OutArray);
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Make6.Make6_2_Sev(selectifKH) : Make6.Make6_2(out OutArray);
                     randomList.Add(Chars);
                 }
                 else if (unit == "6.3")
@@ -78,7 +79,7 @@ namespace Web.Controllers
                     {
                         chlimit = indx % 5;
                     }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make6.Make6_3_Sev() : Make6.Make6_3(out OutArray);
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Make6.Make6_3_Sev(selectifKH) : Make6.Make6_3(out OutArray);
                     randomList.Add(Chars);
                 }
                 else if (unit == "2.2")
@@ -88,7 +89,7 @@ namespace Web.Controllers
                     {
                         chlimit = indx % 5;
                     }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make2.Make2_2_Sev() : Make2.Make2_2(out OutArray);
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Make2.Make2_2_Sev(selectifKH) : Make2.Make2_2(out OutArray);
                     randomList.Add(Chars);
                 }
                 else if (unit == "2.1")
@@ -98,7 +99,7 @@ namespace Web.Controllers
                     {
                         chlimit = indx % 5;
                     }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make2.Make2_1_Sev() : Make2.Make2_1(out OutArray);
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Make2.Make2_1_Sev(selectifKH) : Make2.Make2_1(out OutArray);
                     randomList.Add(Chars);
                 }
                 else if(unit=="5.1")

@@ -14,8 +14,10 @@ function getTest() {
 		return;
     }
 	var ifMany = getSelect('ifMany');
+	var ifKH = getSelect('ifKH');
 	$("#selectItem").val(selects.join(","));
 	$("#selectifMany").val(ifMany.join(","));
+	$("#selectifKH").val(ifKH.join(","));
 	$("#frmReport").submit();
 }
 function getSelect(selectName) {

@@ -32,6 +32,15 @@ namespace Web.Help
             return $"{num1} - {num2} = ";
         }
 
+        public static string Make1_2_R(out List<string> res, int num2, Random farandom) //10以内的不退位减法,反向
+        {
+            //num2 必须大于等于1，小于等于10
+            int num1 = farandom.Next(num2, 11);
+            res = new List<string>() { num1.ToString(), "-", num2.ToString() };
+            // 输出结果
+            return $"{num1} - {num2} = ";
+        }
+
         public static string Make1_1(out List<string> res, int? part1 = null, Random farandom = null)//10以内的不进位加法
         {
             Random random;
