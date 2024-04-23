@@ -41,7 +41,8 @@ namespace Web.Controllers
         public ActionResult ExportExcel(string selectItem,string itemcount,string selectifMany,string selectifKH)
         {
             var Lessons = selectItem.Split(",");
-            Console.Write(selectifKH);
+            var clientIp = HttpContext.Connection.RemoteIpAddress.ToString();
+            Console.WriteLine(clientIp);
             decimal.TryParse(itemcount, out decimal totalst);
             if (totalst == 0) totalst = 100;
             int total = Convert.ToInt32(Math.Floor(totalst));

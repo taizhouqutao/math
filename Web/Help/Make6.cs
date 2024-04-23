@@ -56,7 +56,7 @@ namespace Web.Help
         public static string Make6_1_R(out List<string> res, int num2, Random farandom) //整十数减整十数,反向
         {
             //num2 必须大于等于10 小于等于90
-            int num1 = farandom.Next(num2/10, 10);
+            int num1 = farandom.Next(num2, 10);
             res = new List<string>() { (num1*10).ToString(), "-", (num2*10).ToString() };
             // 输出结果
             return $"{num1*10} - {num2*10} = ";
@@ -184,6 +184,19 @@ namespace Web.Help
             return $"{num1} - {num2} = ";
         }
 
+        public static string Make6_3_R(out List<string> res, int num2, Random farandom) //两位数减一位数、整十数,反向
+        {
+            //num2 必须是1位数 或者整10数
+            int Min=num2;
+            if(Min<10){
+                Min=10;
+            }
+            int num1 = farandom.Next(Min, 100);
+            res = new List<string>() { num1.ToString(), "-", num2.ToString() };
+            // 输出结果
+            return $"{num1} - {num2} = ";
+        }
+
         public static string Make6_1_Sev(string selectifKH)
         {
             Random random = new Random();
@@ -222,7 +235,7 @@ namespace Web.Help
                         else
                         {
                             List<string> Part2 = new List<string>();
-                            Make6_1(out Part2, temp, random,operationString);
+                            Make6_1(out Part2, temp/10, random,operationString);
                             Chars.Insert(0, Part2[2]);
                             Chars.Insert(1, Part2[1]);
                             Chars.Insert(2, "(");
@@ -240,7 +253,7 @@ namespace Web.Help
                         else
                         {
                             List<string> Part2 = new List<string>();
-                            Make6_1_R(out Part2, temp, random);
+                            Make6_1_R(out Part2, temp/10, random);
                             Chars.Insert(0, Part2[0]);
                             Chars.Insert(1, Part2[1]);
                             Chars.Insert(2, "(");
@@ -276,7 +289,11 @@ namespace Web.Help
 
             bool pass = false;
             List<string> Chars = new List<string>();
-
+            int ifHasKH=0;
+            if(!string.IsNullOrEmpty(selectifKH))
+            {
+                ifHasKH = random.Next(0, 2);
+            }
             do
             {
                 int temp = 0;
@@ -290,19 +307,39 @@ namespace Web.Help
                     Chars[0] = Chars[2];
                     Chars[2] = Chartemp;
                 }
-
-                if (temp < 10 || temp >= 100)
+                if(ifHasKH==1)//有括号
                 {
-                    Chars.Clear();
-                    continue;
+                    if (temp < 10 || temp >= 100)
+                    {
+                        Chars.Clear();
+                        continue;
+                    }
+                    else
+                    {
+                        List<string> Part2 = new List<string>();
+                        Make6_2(out Part2, temp, random);
+                        Chars.Insert(0, Part2[2]);
+                        Chars.Insert(1, Part2[1]);
+                        Chars.Insert(2, "(");
+                        Chars.Insert(Chars.Count, ")");
+                        pass = true;
+                    }
                 }
                 else
                 {
-                    List<string> Part2 = new List<string>();
-                    Make6_2(out Part2, temp, random);
-                    Chars.Add(Part2[1]);
-                    Chars.Add(Part2[2]);
-                    pass = true;
+                    if (temp < 10 || temp >= 100)
+                    {
+                        Chars.Clear();
+                        continue;
+                    }
+                    else
+                    {
+                        List<string> Part2 = new List<string>();
+                        Make6_2(out Part2, temp, random);
+                        Chars.Add(Part2[1]);
+                        Chars.Add(Part2[2]);
+                        pass = true;
+                    }
                 }
             } while (pass == false);
             return $"{string.Join(" ", Chars)} = ";
@@ -314,7 +351,11 @@ namespace Web.Help
 
             bool pass = false;
             List<string> Chars = new List<string>();
-
+            int ifHasKH=0;
+            if(!string.IsNullOrEmpty(selectifKH))
+            {
+                ifHasKH = random.Next(0, 2);
+            }
             do
             {
                 var MainPoint = random.Next(0, 2);
@@ -351,36 +392,78 @@ namespace Web.Help
                     }
                 }
 
-                if (Maths2 == "Make6_3")
+                if(ifHasKH==1)//有括号
                 {
-                    if (temp < 10 || temp >= 100)
+                    if (Maths2 == "Make6_3")
                     {
-                        Chars.Clear();
-                        continue;
+                        if ((temp >=10 && temp%10!=0)|| temp >= 100)
+                        {
+                            Chars.Clear();
+                            continue;
+                        }
+                        else
+                        {
+                            List<string> Part2 = new List<string>();
+                            Make6_3_R(out Part2, temp, random);
+                            Chars.Insert(0, Part2[0]);
+                            Chars.Insert(1, Part2[1]);
+                            Chars.Insert(2, "(");
+                            Chars.Insert(Chars.Count, ")");
+                            pass = true;
+                        }
                     }
-                    else
+                    else if (Maths2 == "Make6_2")
                     {
-                        List<string> Part2 = new List<string>();
-                        Make6_3(out Part2, temp, random);
-                        Chars.Add(Part2[1]);
-                        Chars.Add(Part2[2]);
-                        pass = true;
+                        if (temp < 10 || temp >= 100)
+                        {
+                            Chars.Clear();
+                            continue;
+                        }
+                        else
+                        {
+                            List<string> Part2 = new List<string>();
+                            Make6_2(out Part2, temp, random);
+                            Chars.Insert(0, Part2[2]);
+                            Chars.Insert(1, Part2[1]);
+                            Chars.Insert(2, "(");
+                            Chars.Insert(Chars.Count, ")");
+                            pass = true;
+                        }
                     }
                 }
-                else if (Maths2 == "Make6_2")
+                else
                 {
-                    if (temp < 10 || temp >= 100)
+                    if (Maths2 == "Make6_3")
                     {
-                        Chars.Clear();
-                        continue;
+                        if (temp < 10 || temp >= 100)
+                        {
+                            Chars.Clear();
+                            continue;
+                        }
+                        else
+                        {
+                            List<string> Part2 = new List<string>();
+                            Make6_3(out Part2, temp, random);
+                            Chars.Add(Part2[1]);
+                            Chars.Add(Part2[2]);
+                            pass = true;
+                        }
                     }
-                    else
+                    else if (Maths2 == "Make6_2")
                     {
-                        List<string> Part2 = new List<string>();
-                        Make6_2(out Part2, temp, random);
-                        Chars.Add(Part2[1]);
-                        Chars.Add(Part2[2]);
-                        pass = true;
+                        if (temp < 10 || temp >= 100)
+                        {
+                            Chars.Clear();
+                            continue;
+                        }
+                        else
+                        {
+                            List<string> Part2 = new List<string>();
+                            Make6_2(out Part2, temp, random);
+                            Chars.Add(Part2[1]);
+                            Chars.Add(Part2[2]);
+                            pass = true;
+                        }
                     }
                 }
             } while (pass == false);
