@@ -40,6 +40,9 @@ namespace Web.Controllers
 
         public ActionResult ExportExcel(string selectItem,string itemcount,string selectifMany,string selectifKH)
         {
+            if(string.IsNullOrEmpty(selectItem)){
+                return RedirectToAction("Index");
+            }
             var Lessons = selectItem.Split(",");
             var clientIp = HttpContext.Connection.RemoteIpAddress.ToString();
             Console.WriteLine(clientIp);
