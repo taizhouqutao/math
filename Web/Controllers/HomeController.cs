@@ -45,7 +45,8 @@ namespace Web.Controllers
             }
             var Lessons = selectItem.Split(",");
             var clientIp = HttpContext.Connection.RemoteIpAddress.ToString();
-            Console.WriteLine($"IP:{clientIp} Time:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
+            var guid = Guid.NewGuid().ToString();
+            Console.WriteLine($"1:IP:{clientIp} Time:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")} Guid:{guid}");
             decimal.TryParse(itemcount, out decimal totalst);
             if (totalst == 0) totalst = 100;
             int total = Convert.ToInt32(Math.Floor(totalst));
@@ -112,6 +113,7 @@ namespace Web.Controllers
                     randomList.Add(Chars);
                 }
             }
+            Console.WriteLine($"2:IP:{clientIp} Finish:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")} Guid:{guid}");
             using(SXSSFWorkbook book = new SXSSFWorkbook())
             {
                 ISheet sheet1 = book.CreateSheet("Sheet1");
@@ -211,6 +213,7 @@ namespace Web.Controllers
                 sheet1=null;
                 ms.Seek(0, SeekOrigin.Begin);
                 ms.AllowClose = true;
+                Console.WriteLine($"3:IP:{clientIp} OutPut:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")} Guid:{guid}");
                 return File(ms, "application/vnd.ms-excel","口算题.xls"); 
             }
         }
