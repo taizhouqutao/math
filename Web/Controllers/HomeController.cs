@@ -45,7 +45,7 @@ namespace Web.Controllers
             }
             var Lessons = selectItem.Split(",");
             var clientIp = HttpContext.Connection.RemoteIpAddress.ToString();
-            Console.WriteLine(clientIp);
+            Console.WriteLine($"IP:{clientIp} Time:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
             decimal.TryParse(itemcount, out decimal totalst);
             if (totalst == 0) totalst = 100;
             int total = Convert.ToInt32(Math.Floor(totalst));
