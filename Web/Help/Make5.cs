@@ -10,7 +10,16 @@ namespace Web.Help
             Random random= new Random();
 
             string[] typeArrays = new[] {"元角","角" };
-            var typeIdx = random.Next(0, 2);
+            var IdtypeIdx = random.Next(1, 101);
+            var typeIdx = 0;
+            if(IdtypeIdx<=85)
+            {
+                typeIdx=0; 
+            }
+            else
+            {
+                typeIdx=1;
+            }
             var type = typeArrays[typeIdx];
             int num1 = 0,num2 = 0;
             string operationString = string.Empty;
