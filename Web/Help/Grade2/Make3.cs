@@ -7,7 +7,28 @@ namespace Web.Help.Grade2
     {
         public static string Make3_1_Sev(string selectifKH)
         {
-            return "";
+            Random random = new Random();
+
+            bool pass = false;
+            List<string> Chars = new List<string>();
+            do
+            {
+                var MainPoint = random.Next(0, 2);
+                string[] Maths = new[] { "+", "-" };
+                string Maths2 = Maths[random.Next(0, 2)];
+                var strTemps = Make3_1(out Chars, null, random);
+                var temp = Convert.ToInt32(Chars[0]) * Convert.ToInt32(Chars[2]);
+                if (Maths2 == "+")
+                {
+                    
+                }
+                else if(Maths2 == "-")
+                {
+
+                }
+            } while (pass == false);
+            // 输出结果
+            return $"{string.Join(" ", Chars)} = ";
         }
 
         public static string Make3_1(out List<string> res, int? part1 = null, Random farandom = null)
