@@ -442,7 +442,9 @@ namespace Web.Help.Grade2
             int num1 = 0,num2=0;
             if (part1 == null)
             {
-                num1 = random.Next(20, 100);
+                do{
+                    num1 = random.Next(20, 100);
+                }while(num1%10==9);
             }
             else
             {
@@ -561,7 +563,7 @@ namespace Web.Help.Grade2
                     }
                     else if (Maths2 == "Make2_4")
                     {
-                        if (temp < 11 || temp >= 90)
+                        if (temp < 11 || temp >= 90||temp%10==0)
                         {
                             Chars.Clear();
                             continue;
@@ -630,7 +632,7 @@ namespace Web.Help.Grade2
                     }
                     else if (Maths2 == "Make2_4")
                     {
-                        if (temp < 20 || temp >= 100)
+                        if (temp < 20 || temp >= 100||temp%10==9)
                         {
                             Chars.Clear();
                             continue;
