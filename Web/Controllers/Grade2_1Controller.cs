@@ -39,34 +39,14 @@ namespace Web.Controllers
                 List<string> OutArray = new List<string>();
                 var indexKey = rd.Next(0, Lessons.Count());
                 var unit = Lessons[indexKey];
-                if (unit == "6.1")
+                if (unit == "2.1")
                 {
                     int chlimit = 0;
                     if (!string.IsNullOrEmpty(selectifMany))
                     {
                         chlimit = indx % 5;
                     }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make6.Make6_1_Sev(selectifKH) : Make6.Make6_1(out OutArray);
-                    randomList.Add(Chars);
-                }
-                else if (unit == "6.2")
-                {
-                    int chlimit = 0;
-                    if (!string.IsNullOrEmpty(selectifMany))
-                    {
-                        chlimit = indx % 5;
-                    }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make6.Make6_2_Sev(selectifKH) : Make6.Make6_2(out OutArray);
-                    randomList.Add(Chars);
-                }
-                else if (unit == "6.3")
-                {
-                    int chlimit = 0;
-                    if (!string.IsNullOrEmpty(selectifMany))
-                    {
-                        chlimit = indx % 5;
-                    }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make6.Make6_3_Sev(selectifKH) : Make6.Make6_3(out OutArray);
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade2.Make2.Make2_1_Sev(selectifKH) : Help.Grade2.Make2.Make2_1(out OutArray);
                     randomList.Add(Chars);
                 }
                 else if (unit == "2.2")
@@ -76,23 +56,40 @@ namespace Web.Controllers
                     {
                         chlimit = indx % 5;
                     }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make2.Make2_2_Sev(selectifKH) : Make2.Make2_2(out OutArray);
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade2.Make2.Make2_2_Sev(selectifKH) : Help.Grade2.Make2.Make2_2(out OutArray);
                     randomList.Add(Chars);
                 }
-                else if (unit == "2.1")
+                else if (unit == "2.3")
                 {
-                    int chlimit = 0;
-                    if (!string.IsNullOrEmpty(selectifMany))
-                    {
-                        chlimit = indx % 5;
-                    }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make2.Make2_1_Sev(selectifKH) : Make2.Make2_1(out OutArray);
-                    randomList.Add(Chars);
+
                 }
-                else if(unit=="5.1")
+                else if (unit == "2.4")
                 {
-                    var Chars = Make5.Make5_1();
-                    randomList.Add(Chars);
+
+                }
+                else if (unit == "3.1")
+                {
+
+                }
+                else if (unit == "3.2")
+                {
+
+                }
+                else if (unit == "3.3")
+                {
+
+                }
+                else if (unit == "4.1")
+                {
+
+                }
+                else if (unit == "4.2")
+                {
+
+                }
+                else if (unit == "4.3")
+                {
+
                 }
             }
             Console.WriteLine($"2:IP:{clientIp} Make:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")} Guid:{guid}");
