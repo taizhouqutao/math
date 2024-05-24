@@ -61,11 +61,23 @@ namespace Web.Controllers
                 }
                 else if (unit == "2.3")
                 {
-
+                    int chlimit = 0;
+                    if (!string.IsNullOrEmpty(selectifMany))
+                    {
+                        chlimit = indx % 5;
+                    }
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade2.Make2.Make2_3_Sev(selectifKH) : Help.Grade2.Make2.Make2_3(out OutArray);
+                    randomList.Add(Chars);
                 }
                 else if (unit == "2.4")
                 {
-
+                    int chlimit = 0;
+                    if (!string.IsNullOrEmpty(selectifMany))
+                    {
+                        chlimit = indx % 5;
+                    }
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade2.Make2.Make2_4_Sev(selectifKH) : Help.Grade2.Make2.Make2_4(out OutArray);
+                    randomList.Add(Chars);
                 }
                 else if (unit == "3.1")
                 {
