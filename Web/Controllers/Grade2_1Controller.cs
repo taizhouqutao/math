@@ -81,7 +81,13 @@ namespace Web.Controllers
                 }
                 else if (unit == "3.1")
                 {
-
+                    int chlimit = 0;
+                    if (!string.IsNullOrEmpty(selectifMany))
+                    {
+                        chlimit = indx % 5;
+                    }
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade2.Make3.Make3_1_Sev(selectifKH) : Help.Grade2.Make3.Make3_1(out OutArray);
+                    randomList.Add(Chars);
                 }
                 else if (unit == "3.2")
                 {
