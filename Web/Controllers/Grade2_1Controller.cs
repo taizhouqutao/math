@@ -91,23 +91,53 @@ namespace Web.Controllers
                 }
                 else if (unit == "3.2")
                 {
-
+                    int chlimit = 0;
+                    if (!string.IsNullOrEmpty(selectifMany))
+                    {
+                        chlimit = indx % 5;
+                    }
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade2.Make3.Make3_2_Sev(selectifKH) : Help.Grade2.Make3.Make3_2(out OutArray);
+                    randomList.Add(Chars);
                 }
                 else if (unit == "3.3")
                 {
-
+                    int chlimit = 0;
+                    if (!string.IsNullOrEmpty(selectifMany))
+                    {
+                        chlimit = indx % 5;
+                    }
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade2.Make3.Make3_3_Sev(selectifKH) : Help.Grade2.Make3.Make3_3(out OutArray);
+                    randomList.Add(Chars);
                 }
                 else if (unit == "4.1")
                 {
-
+                    int chlimit = 0;
+                    if (!string.IsNullOrEmpty(selectifMany))
+                    {
+                        chlimit = indx % 5;
+                    }
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade2.Make4.Make4_1_Sev(selectifKH) : Help.Grade2.Make4.Make4_1(out OutArray);
+                    randomList.Add(Chars);
                 }
                 else if (unit == "4.2")
                 {
-
+                    int chlimit = 0;
+                    if (!string.IsNullOrEmpty(selectifMany))
+                    {
+                        chlimit = indx % 5;
+                    }
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade2.Make4.Make4_2_Sev(selectifKH) : Help.Grade2.Make4.Make4_2(out OutArray);
+                    randomList.Add(Chars);
                 }
                 else if (unit == "4.3")
                 {
-
+                    int chlimit = 0;
+                    if (!string.IsNullOrEmpty(selectifMany))
+                    {
+                        chlimit = indx % 5;
+                    }
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade2.Make4.Make4_3_Sev(selectifKH) : Help.Grade2.Make4.Make4_3(out OutArray);
+                    randomList.Add(Chars);
                 }
             }
             Console.WriteLine($"2:IP:{clientIp} Make:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")} Guid:{guid}");
