@@ -62,7 +62,7 @@ namespace Web.Help.Grade2
             num2 = random.Next(1, 8);
 
             var opt = random.Next(0, 2);
-            if (opt == 1 && farandom == null)
+            if (opt == 1)
             {
                 var temp = num1;
                 num1 = num2;
@@ -131,7 +131,7 @@ namespace Web.Help.Grade2
             num2 = random.Next(1, 9);
 
             var opt = random.Next(0, 2);
-            if (opt == 1 && farandom == null)
+            if (opt == 1)
             {
                 var temp = num1;
                 num1 = num2;
@@ -200,7 +200,7 @@ namespace Web.Help.Grade2
             num2 = random.Next(1, 10);
 
             var opt = random.Next(0, 2);
-            if (opt == 1 && farandom == null)
+            if (opt == 1)
             {
                 var temp = num1;
                 num1 = num2;
