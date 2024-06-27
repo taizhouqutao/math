@@ -64,7 +64,7 @@ namespace Web.Controllers
                     {
                         chlimit = indx % 5;
                     }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make6.Make6_1_Sev(selectifKH) : Make6.Make6_1(out OutArray);
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade1.Make6.Make6_1_Sev(selectifKH) : Help.Grade1.Make6.Make6_1(out OutArray);
                     randomList.Add(Chars);
                 }
                 else if (unit == "6.2")
@@ -74,7 +74,7 @@ namespace Web.Controllers
                     {
                         chlimit = indx % 5;
                     }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make6.Make6_2_Sev(selectifKH) : Make6.Make6_2(out OutArray);
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade1.Make6.Make6_2_Sev(selectifKH) : Help.Grade1.Make6.Make6_2(out OutArray);
                     randomList.Add(Chars);
                 }
                 else if (unit == "6.3")
@@ -84,7 +84,7 @@ namespace Web.Controllers
                     {
                         chlimit = indx % 5;
                     }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make6.Make6_3_Sev(selectifKH) : Make6.Make6_3(out OutArray);
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade1.Make6.Make6_3_Sev(selectifKH) : Help.Grade1.Make6.Make6_3(out OutArray);
                     randomList.Add(Chars);
                 }
                 else if (unit == "2.2")
@@ -94,7 +94,7 @@ namespace Web.Controllers
                     {
                         chlimit = indx % 5;
                     }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make2.Make2_2_Sev(selectifKH) : Make2.Make2_2(out OutArray);
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade1.Make2.Make2_2_Sev(selectifKH) : Help.Grade1.Make2.Make2_2(out OutArray);
                     randomList.Add(Chars);
                 }
                 else if (unit == "2.1")
@@ -104,12 +104,12 @@ namespace Web.Controllers
                     {
                         chlimit = indx % 5;
                     }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Make2.Make2_1_Sev(selectifKH) : Make2.Make2_1(out OutArray);
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade1.Make2.Make2_1_Sev(selectifKH) : Help.Grade1.Make2.Make2_1(out OutArray);
                     randomList.Add(Chars);
                 }
                 else if(unit=="5.1")
                 {
-                    var Chars = Make5.Make5_1();
+                    var Chars = Help.Grade1.Make5.Make5_1();
                     randomList.Add(Chars);
                 }
             }
