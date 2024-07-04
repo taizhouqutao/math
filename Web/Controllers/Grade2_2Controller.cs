@@ -49,6 +49,16 @@ namespace Web.Controllers
                     var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade2.Make22.Make2_1_Sev(selectifKH) : Help.Grade2.Make22.Make2_1(out OutArray);
                     randomList.Add(Chars);
                 }
+                else if (unit == "4.1")
+                {
+                    int chlimit = 0;
+                    if (!string.IsNullOrEmpty(selectifMany))
+                    {
+                        chlimit = indx % 5;
+                    }
+                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade2.Make22.Make4_1_Sev(selectifKH) : Help.Grade2.Make22.Make4_1(out OutArray);
+                    randomList.Add(Chars);
+                }
             }
             Console.WriteLine($"2:IP:{clientIp} Make:{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")} Guid:{guid}");
             var ms = MakeFile.GetFileStream(Lessons,randomList,selectifMany);
