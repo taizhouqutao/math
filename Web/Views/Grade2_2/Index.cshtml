@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "二年级（下）";
+}
+
+<div class="text-center">
+    <h1 class="display-4">导出口算</h1>
+    <form id="frmReport" action="/Grade2_2/ExportExcel" method="post">
+        <input type="hidden" id="selectItem" name="selectItem" />
+        <input type="hidden" id="selectifMany" name="selectifMany" />
+        <input type="hidden" id="selectifKH" name="selectifKH" />
+        <div><input type="checkbox" name="ifMany" class="ifMany" value="1" checked>包含三项式&nbsp;&nbsp;&nbsp;<input type="checkbox" name="ifKH" class="ifKH" value="1" checked>包含括号</div>
+        <div>生成题数：<input type="number" value="120" name="itemcount">  <input type="button" onclick="getTest()" value="导出" /></div>
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" name="option_all" value="check_all" id="checkbox-all">全选</th>
+                    <th>课程</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" name="option1" class="option1" value="7.1"></td>
+                    <td>7.1 万以内数的认识 整百、整千数的加减法</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="option1" class="option1" value="6.1"></td>
+                    <td>6.1 有余数的除法</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="option1" class="option1" value="5.1"></td>
+                    <td>5.1 混合运算</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="option1" class="option1" value="4.1"></td>
+                    <td>4.1 表内除法（二）</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="option1" class="option1" value="2.1"></td>
+                    <td>2.1 表内除法（一）用2~6的乘法口诀求商</td>
+                </tr>
+                <!-- 其他行... -->
+            </tbody>
+        </table>
+    </form>
+</div>

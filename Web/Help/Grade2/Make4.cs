@@ -39,7 +39,7 @@ namespace Web.Help.Grade2
             return $"{string.Join(" ", Chars)} = ";
         }
 
-        public static string Make4_1(out List<string> res, int? part1 = null, Random farandom = null)
+        public static string Make4_1(out List<string> res, int? part1 = null, Random farandom = null) //表内乘法（二）7的乘法口诀
         {
             Random random;
             if (farandom == null)
@@ -108,7 +108,7 @@ namespace Web.Help.Grade2
             return $"{string.Join(" ", Chars)} = ";
         }
 
-        public static string Make4_2(out List<string> res, int? part1 = null, Random farandom = null)
+        public static string Make4_2(out List<string> res, int? part1 = null, Random farandom = null) //表内乘法（二）8的乘法口诀
         {
             Random random;
             if (farandom == null)
@@ -177,7 +177,7 @@ namespace Web.Help.Grade2
             return $"{string.Join(" ", Chars)} = ";
         }
 
-        public static string Make4_3(out List<string> res, int? part1 = null, Random farandom = null)
+        public static string Make4_3(out List<string> res, int? part1 = null, Random farandom = null) //表内乘法（二）9的乘法口诀
         {
             Random random;
             if (farandom == null)

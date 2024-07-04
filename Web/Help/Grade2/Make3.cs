@@ -55,7 +55,7 @@ namespace Web.Help.Grade2
             return $"{part1} - {num2} = ";
         }
 
-        public static string Make3_1(out List<string> res, int? part1 = null, Random farandom = null)
+        public static string Make3_1(out List<string> res, int? part1 = null, Random farandom = null) //表内乘法（一）5的乘法口诀
         {
             Random random;
             if (farandom == null)
@@ -90,7 +90,7 @@ namespace Web.Help.Grade2
             return $"{num1} × {num2} = ";
         }
 
-        public static string Make3_2(out List<string> res, int? part1 = null, Random farandom = null)
+        public static string Make3_2(out List<string> res, int? part1 = null, Random farandom = null) //表内乘法（一）2、3、4的乘法口诀
         {
             Random random;
             if (farandom == null)
@@ -150,7 +150,7 @@ namespace Web.Help.Grade2
             return $"{string.Join(" ", Chars)} = ";
         }
 
-        public static string Make3_3(out List<string> res, int? part1 = null, Random farandom = null)
+        public static string Make3_3(out List<string> res, int? part1 = null, Random farandom = null) //表内乘法（一）6的乘法口诀
         {
             Random random;
             if (farandom == null)

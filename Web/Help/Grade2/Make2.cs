@@ -59,7 +59,7 @@ namespace Web.Help.Grade2
             return $"{string.Join(" ", Chars)} = ";
         }
 
-        public static string Make2_1(out List<string> res, int? part1 = null, Random farandom = null) 
+        public static string Make2_1(out List<string> res, int? part1 = null, Random farandom = null) //100以内的加法和减法（二）不进位加
         {
             Random random;
             if (farandom == null)
@@ -203,7 +203,7 @@ namespace Web.Help.Grade2
             return $"{string.Join(" ", Chars)} = ";
         }
 
-        public static string Make2_2(out List<string> res, int? part1 = null, Random farandom = null)
+        public static string Make2_2(out List<string> res, int? part1 = null, Random farandom = null) //100以内的加法和减法（二）进位加
         {
             Random random;
             if (farandom == null)
@@ -233,7 +233,7 @@ namespace Web.Help.Grade2
             return $"{num1} + {num2} = ";
         }
     
-        public static string Make2_3(out List<string> res, int? part1 = null, Random farandom = null) 
+        public static string Make2_3(out List<string> res, int? part1 = null, Random farandom = null) //100以内的加法和减法（二）不退位减
         {
             Random random;
             if (farandom == null)
@@ -428,7 +428,7 @@ namespace Web.Help.Grade2
             return $"{num1} - {num2} = ";
         }
 
-        public static string Make2_4(out List<string> res, int? part1 = null, Random farandom = null)
+        public static string Make2_4(out List<string> res, int? part1 = null, Random farandom = null) //100以内的加法和减法（二）退位减
         {
             Random random;
             if (farandom == null)
