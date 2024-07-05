@@ -66,12 +66,12 @@ namespace Web.Controllers
                 }
                 else if (unit == "6.1.2")
                 {
-                    int chlimit = 0;
-                    if (!string.IsNullOrEmpty(selectifMany))
-                    {
-                        chlimit = indx % 5;
-                    }
-                    var Chars = (chlimit == 3 || chlimit == 4) ? Help.Grade2.Make6.Make6_1(out OutArray) : Help.Grade2.Make6.Make6_1(out OutArray);
+                    var Chars = Help.Grade2.Make6.Make6_1(out OutArray);
+                    randomList.Add(Chars);
+                }
+                else if (unit == "7.1")
+                {
+                    var Chars = Help.Grade2.Make7.Make7_1(out OutArray);
                     randomList.Add(Chars);
                 }
             }

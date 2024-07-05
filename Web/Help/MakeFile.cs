@@ -96,7 +96,45 @@ namespace Web.Help
                         randomList.RemoveAt(0);
                     } while (randomList.Count > 0);
                 }
-                else if (Lessons.Contains("6.1.2") && Lessons.Count()==1 && !string.IsNullOrEmpty(selectifMany))
+                else if (Lessons.Contains("7.1"))
+                {
+                    do
+                    {
+                        IRow row;
+                        if (i == 0)
+                        {
+                            row = sheet1.CreateRow(rowIdx);
+                        }
+                        else
+                        {
+                            row = sheet1.GetRow(rowIdx);
+                        }
+                        ICellStyle cellStyle = book.CreateCellStyle();
+                        IFont font = book.CreateFont();
+                        font.FontHeightInPoints = 14; // 设置字体大小，单位为点
+                        cellStyle.SetFont(font);
+
+                        row.Height = 600;
+
+                        var cell = row.CreateCell(i * 2);
+                        var cellValue = randomList[0];
+                        cellValue = cellValue.Replace(" ", "");
+                        cell.SetCellValue(cellValue);
+                        cell.CellStyle = cellStyle;
+                        var cellAns = row.CreateCell(i * 2 + 1);
+                        int Width = 4000;
+                        sheet1.SetColumnWidth(i * 2 + 1, Width);
+                        cellAns.CellStyle = cellStyle;
+                        i = i + 1;
+                        if (i == 3)
+                        {
+                            i = 0;
+                            rowIdx = rowIdx + 1;
+                        }
+                        randomList.RemoveAt(0);
+                    } while (randomList.Count > 0);
+                }
+                else if (!Lessons.ToList().Exists(i=>i!="6.1.2"))
                 {
                     do
                     {
