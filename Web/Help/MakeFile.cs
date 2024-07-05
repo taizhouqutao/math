@@ -122,11 +122,11 @@ namespace Web.Help
                         cell.SetCellValue(cellValue);
                         cell.CellStyle = cellStyle;
                         var cellAns = row.CreateCell(i * 2 + 1);
-                        int Width = 4000;
+                        int Width = 3500;
                         sheet1.SetColumnWidth(i * 2 + 1, Width);
                         cellAns.CellStyle = cellStyle;
                         i = i + 1;
-                        if (i == 3)
+                        if (i == 4)
                         {
                             i = 0;
                             rowIdx = rowIdx + 1;
