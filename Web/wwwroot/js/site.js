@@ -13,6 +13,10 @@ function getTest() {
 			alert("因为排版问题，“5.1认识人民币”无法和其他课题混选，如要练习5.1课题，需单独勾选5.1课，请见谅");
 			return;
 		}
+		else if(selects[i]=="5.1.2" && selects.length > 1){
+			alert("因为排版问题，“5.1混合运算”无法和其他课题混选，如要练习5.1课题，需单独勾选5.1课，请见谅");
+			return;
+		}
 	}
 	var ifMany = getSelect('ifMany');
 	var ifKH = getSelect('ifKH');
