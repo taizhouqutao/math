@@ -10,14 +10,15 @@ namespace Web.Help.Grade2
         public static string Make2_1_Sev(string selectifKH)
         {
             Random random = new Random();
-
+            var CFres = GetMake2_1AllRes();
             bool pass = false;
             List<string> Chars = new List<string>();
-            int ifHasKH = 0;
+            int ifHasKH = 0;int ifSX = 0;
             if (!string.IsNullOrEmpty(selectifKH))
             {
                 ifHasKH = random.Next(0, 2);
             }
+            ifSX=random.Next(0, 2);
 
             int temp = 0;
             var MainPoint = random.Next(0, 2);
@@ -50,24 +51,47 @@ namespace Web.Help.Grade2
                 }
                 else if(Maths1=="+")
                 {
-                    var math1num1 = random.Next(1, 6);
-                    var math1num2 = random.Next(1, 6-math1num1+1);
-                    Chars=new List<string>() { math1num1.ToString(), "+", math1num2.ToString() };
-                    temp=math1num1+math1num2;
+                    if(ifSX==0)
+                    {
+                        var math1num1 = random.Next(1, 6);
+                        var math1num2 = random.Next(1, 6-math1num1+1);
+                        Chars=new List<string>() { math1num1.ToString(), "+", math1num2.ToString() };
+                        temp=math1num1+math1num2;
+                    }
+                    else
+                    {
+                        var PLUSres=CFres[random.Next(0,CFres.Count)];
+                        if(PLUSres==1) continue;
+                        var math1num1 = random.Next(1, PLUSres);
+                        var math1num2 = PLUSres-math1num1;
+                        Chars=new List<string>() { math1num1.ToString(), "+", math1num2.ToString() };
+                        temp=math1num1+math1num2;
+                    }
                 }
                 else if(Maths1=="-")
                 {
-                    var math1num1 = random.Next(2, 100);
-                    var minNum2=math1num1-6<1?1:math1num1-6;
-                    var math1num2 = random.Next(minNum2, math1num1);
-                    Chars=new List<string>() { math1num1.ToString(), "-", math1num2.ToString() };
-                    temp=math1num1-math1num2;
+                    if(ifSX==0)
+                    {
+                        var math1num1 = random.Next(2, 100);
+                        var minNum2=math1num1-6<1?1:math1num1-6;
+                        var math1num2 = random.Next(minNum2, math1num1);
+                        Chars=new List<string>() { math1num1.ToString(), "-", math1num2.ToString() };
+                        temp=math1num1-math1num2;
+                    }
+                    else
+                    {
+                        var PLUSres=CFres[random.Next(0,CFres.Count)];
+                        var math1num1 = random.Next(PLUSres, 100);
+                        var math1num2 = math1num1-PLUSres;
+                        Chars=new List<string>() { math1num1.ToString(), "-", math1num2.ToString() };
+                        temp=math1num1-math1num2;
+                    }
                 }
                 if(ifHasKH==0)//无括号
                 {
                     if (Maths2 == "9Make2_1")
                     {
-                        if (!GetMake2_1AllRes().Contains(temp))
+                        if (!CFres.Contains(temp))
                         {
                             Chars.Clear();
                             continue;
@@ -131,19 +155,32 @@ namespace Web.Help.Grade2
                 {
                     if(Maths2=="9Make2_1")
                     {
-                        if (temp>=7)
+                        if(ifSX==0||Maths1=="*"||Maths1=="9Make2_1")
                         {
-                            Chars.Clear();
-                            continue;
+                            if (temp>=7)
+                            {
+                                Chars.Clear();
+                                continue;
+                            }
+                            else
+                            {
+                                var ch1 = random.Next(1, 10);
+                                var number1 = ch1*temp;
+                                Chars.Insert(0, number1.ToString());
+                                Chars.Insert(1, "÷");
+                                Chars.Insert(2, "(");
+                                Chars.Insert(Chars.Count, ")");
+                                pass = true;
+                            }
                         }
                         else
                         {
-                            var ch1 = random.Next(1, 10);
-                            var number1 = ch1*temp;
-                            Chars.Insert(0, number1.ToString());
-                            Chars.Insert(1, "÷");
-                            Chars.Insert(2, "(");
-                            Chars.Insert(Chars.Count, ")");
+                            List<string> Part2 = new List<string>();
+                            Make2_1(out Part2, temp, random);
+                            Chars.Insert(0, "(");
+                            Chars.Add(")");
+                            Chars.Add(Part2[1]);
+                            Chars.Add(Part2[2]);
                             pass = true;
                         }
                     }
@@ -223,7 +260,7 @@ namespace Web.Help.Grade2
                 num1 = (int)part1;
                 do{
                     num2=random.Next(1, 7);
-                }while(num1%num2!=0);
+                }while(num1%num2!=0||(num1/num2)>9);
             }
             res = new List<string>() { num1.ToString(), "÷", num2.ToString() };
             // 输出结果
@@ -266,7 +303,7 @@ namespace Web.Help.Grade2
                 num1 = (int)part1;
                 do{
                     num2=random.Next(1, 10);
-                }while(num1%num2!=0);
+                }while(num1%num2!=0||(num1/num2)>9);
             }
             res = new List<string>() { num1.ToString(), "÷", num2.ToString() };
             // 输出结果
@@ -276,14 +313,15 @@ namespace Web.Help.Grade2
         public static string Make4_1_Sev(string selectifKH)
         {
             Random random = new Random();
-
+            var CFres = GetMake4_1AllRes();
             bool pass = false;
             List<string> Chars = new List<string>();
-            int ifHasKH = 0;
+            int ifHasKH = 0;int ifSX = 0;
             if (!string.IsNullOrEmpty(selectifKH))
             {
                 ifHasKH = random.Next(0, 2);
             }
+            ifSX=random.Next(0, 2);
 
             int temp = 0;
             var MainPoint = random.Next(0, 2);
@@ -316,18 +354,41 @@ namespace Web.Help.Grade2
                 }
                 else if(Maths1=="+")
                 {
-                    var math1num1 = random.Next(1, 9);
-                    var math1num2 = random.Next(1, 9-math1num1+1);
-                    Chars=new List<string>() { math1num1.ToString(), "+", math1num2.ToString() };
-                    temp=math1num1+math1num2;
+                    if(ifSX==0)
+                    {
+                        var math1num1 = random.Next(1, 9);
+                        var math1num2 = random.Next(1, 9-math1num1+1);
+                        Chars=new List<string>() { math1num1.ToString(), "+", math1num2.ToString() };
+                        temp=math1num1+math1num2;
+                    }
+                    else
+                    {
+                        var PLUSres=CFres[random.Next(0,CFres.Count)];
+                        if(PLUSres==1) continue;
+                        var math1num1 = random.Next(1, PLUSres);
+                        var math1num2 = PLUSres-math1num1;
+                        Chars=new List<string>() { math1num1.ToString(), "+", math1num2.ToString() };
+                        temp=math1num1+math1num2;
+                    }
                 }
                 else if(Maths1=="-")
                 {
-                    var math1num1 = random.Next(2, 100);
-                    var minNum2=math1num1-9<1?1:math1num1-9;
-                    var math1num2 = random.Next(minNum2, math1num1);
-                    Chars=new List<string>() { math1num1.ToString(), "-", math1num2.ToString() };
-                    temp=math1num1-math1num2;
+                    if(ifSX==0)
+                    {
+                        var math1num1 = random.Next(2, 100);
+                        var minNum2=math1num1-9<1?1:math1num1-9;
+                        var math1num2 = random.Next(minNum2, math1num1);
+                        Chars=new List<string>() { math1num1.ToString(), "-", math1num2.ToString() };
+                        temp=math1num1-math1num2;
+                    }
+                    else
+                    {
+                        var PLUSres=CFres[random.Next(0,CFres.Count)];
+                        var math1num1 = random.Next(PLUSres, 100);
+                        var math1num2 = math1num1-PLUSres;
+                        Chars=new List<string>() { math1num1.ToString(), "-", math1num2.ToString() };
+                        temp=math1num1-math1num2;
+                    }
                 }
                 if(ifHasKH==0)//无括号
                 {
@@ -397,19 +458,32 @@ namespace Web.Help.Grade2
                 {
                     if(Maths2=="9Make4_1")
                     {
-                        if (temp>=10)
+                        if(ifSX==0||Maths1=="*"||Maths1=="9Make4_1")
                         {
-                            Chars.Clear();
-                            continue;
+                            if (temp>=10)
+                            {
+                                Chars.Clear();
+                                continue;
+                            }
+                            else
+                            {
+                                var ch1 = random.Next(1, 10);
+                                var number1 = ch1*temp;
+                                Chars.Insert(0, number1.ToString());
+                                Chars.Insert(1, "÷");
+                                Chars.Insert(2, "(");
+                                Chars.Insert(Chars.Count, ")");
+                                pass = true;
+                            }
                         }
                         else
                         {
-                            var ch1 = random.Next(1, 10);
-                            var number1 = ch1*temp;
-                            Chars.Insert(0, number1.ToString());
-                            Chars.Insert(1, "÷");
-                            Chars.Insert(2, "(");
-                            Chars.Insert(Chars.Count, ")");
+                            List<string> Part2 = new List<string>();
+                            Make4_1(out Part2, temp, random);
+                            Chars.Insert(0, "(");
+                            Chars.Add(")");
+                            Chars.Add(Part2[1]);
+                            Chars.Add(Part2[2]);
                             pass = true;
                         }
                     }
