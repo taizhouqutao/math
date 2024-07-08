@@ -200,7 +200,7 @@ namespace Web.Help
                         cell.SetCellValue(cellValue);
                         cell.CellStyle = cellStyle;
                         var cellAns = row.CreateCell(i * 2 + 1);
-                        int Width = 2400;
+                        int Width = 2350;
                         if (!string.IsNullOrEmpty(selectifMany))
                         {
                             if (i == 3 || i == 4)
