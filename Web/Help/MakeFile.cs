@@ -84,7 +84,7 @@ namespace Web.Help
                         cell.SetCellValue(cellValue);
                         cell.CellStyle = cellStyle;
                         var cellAns = row.CreateCell(i * 2 + 1);
-                        int Width = 2400;
+                        int Width = 2350;
                         sheet1.SetColumnWidth(i * 2 + 1, Width);
                         cellAns.CellStyle = cellStyle;
                         i = i + 1;
@@ -159,7 +159,7 @@ namespace Web.Help
                         cell.SetCellValue(cellValue);
                         cell.CellStyle = cellStyle;
                         var cellAns = row.CreateCell(i * 2 + 1);
-                        int Width = 2400;
+                        int Width = 2350;
                         sheet1.SetColumnWidth(i * 2 + 1, Width);
                         cellAns.CellStyle = cellStyle;
                         i = i + 1;
